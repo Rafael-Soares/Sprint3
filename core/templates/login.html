@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static '../static/css/estilo.css' %}">
+    <link rel="sortcut icon" href="{% static '../static/imagens/chave-de-acesso.svg' %}" type="image/x-icon"/>
+</head>
+<body>
+    <div id="logo">
+        <img src="{% static '../static/imagens/logoeject.png' %}" alt="">
+    </div>
+    <div id="frase-login">
+        <h2>Faça login usando sua conta</h2>
+        <p><a href="{% url 'index'%}">Inicial</a></p>
+    </div>
+
+    <form id="form-login" action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        <p><input type="text" class="inputs" placeholder="Login"  name="email" required></p>
+        <p><input type="password" class="inputs" placeholder="Senha" name="senha" required></p>
+        <p><button type="submit" class="button-login">ENTRAR</button></p>
+    </form>
+    
+    <div class="links">
+        <a id="chama" href="{% url 'cadastro' %}">Não tem uma conta ainda?</a>
+        <a id="chama2" href="#">Esqueceu sua senha?</a>
+    </div>
+</body>
+</html>

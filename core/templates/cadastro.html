@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <h1>Cadastro de usuários</h1>
+    <nav>
+        <p><a href="{%url 'index' %}">Inicial</a></p>
+        <p><a href="{%url 'login' %}">Login</a></p>
+    </nav>
+    <div>
+        <form id="form-login" action="{% url 'cadastro' %}" method="POST">
+            {% csrf_token %}
+            <p><input type="text" class="inputs" placeholder="Nome completo" name="nome" required></p>
+            <p><input type="text" class="inputs" placeholder="Email" name="email" required></p>
+            <p><input type="password" class="inputs" placeholder="Senha" name="senha" required></p>
+            <p><input type="password" class="inputs" placeholder="Confirmação de senha" name="confiSenha" required></p>
+            <p><button type="submit" class="button-login">CADASTRAR</button></p>
+        </form>
+
+    </div>
+</body>
+
+</html>
